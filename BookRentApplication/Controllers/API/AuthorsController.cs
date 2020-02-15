@@ -46,9 +46,7 @@ namespace BookRentApplication.Controllers.API
         [HttpGet("{id}")]
         public JsonResult GetAuthor(int id)
         {
-            var author1 =  _context.Authors.Include(a=>a.Books).Select(a=>new AuthorViewModel() { Author_Id = a.Author_Id, Author_Name = a.Author_Name, Books = a.Books }).SingleOrDefault(a=>a.Author_Id == id);
-            //  var c = _context.Authors.Include(a => a.Books).Select(a => new AuthorAndBook() {Book_Name=a.Book.Book_Name,Author_Id=a.Author_Id,Author_Name=a.Author_Name,Book_Id=a.Book.Book_Id}).SingleOrDefault(a=>a.Author_Id==id);
-            
+                       
             var author = from a in _context.Authors 
                          where Convert.ToInt32(a.Author_Id) == id
                          select new
@@ -64,8 +62,7 @@ namespace BookRentApplication.Controllers.API
         }
 
         // PUT: api/Authors/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+       
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAuthor(int id, Author author)
         {
@@ -96,8 +93,7 @@ namespace BookRentApplication.Controllers.API
         }
 
         // POST: api/Authors
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        
         [HttpPost]
         public async Task<ActionResult<Author>> PostAuthor(Author author)
         {
