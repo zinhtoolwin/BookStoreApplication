@@ -6,50 +6,53 @@
 
 <h3>Authors List</h3>
 
-<p>
-    <a class="btn btn-primary" asp-action="Create">Create New</a>
-</p>
-<table class="table" id="myTable">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Author_Name)
-            </th>
-            
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author_Name)
-            </td>
-            @if (User.IsInRole("Admin"))
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
+    </p>
+
+    <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author_Name)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
             {
-        <td>
-            <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Author_Id">Edit</a> |
-            <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Author_Id">Details</a> |
-            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Author_Id">Delete</a>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author_Name)
+                    </td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>
+                            <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Author_Id">Edit</a> |
+                            <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Author_Id">Details</a> |
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Author_Id">Delete</a>
 
 
-        </td>
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+
+
+
+                </tr>
             }
-            else
-            {
-                <td></td>
-            }
+        </tbody>
+    </table>
 
-
-
-        </tr>
-}
-    </tbody>
-</table>
-@section Scripts{
-<script>
-    $(document).ready(function () {
-        $("#myTable").DataTable();
-    });
-</script>
- }
+    @section Scripts{
+        <script>
+            $(document).ready(function () {
+                $("#myTable").DataTable();
+            });
+        </script>
+    }

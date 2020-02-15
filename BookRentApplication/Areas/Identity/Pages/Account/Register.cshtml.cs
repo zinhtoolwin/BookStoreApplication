@@ -43,6 +43,7 @@ namespace BookRentApplication.Areas.Identity.Pages.Account
 
         [BindProperty]
         public InputModel Input { get; set; }
+        [Required(ErrorMessage ="Please Select Role")]
         public List<ApplicationRoleRegisterViewModel> RolesList { get; private set; }
         public string ReturnUrl { get; set; }
 
@@ -65,6 +66,8 @@ namespace BookRentApplication.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required(ErrorMessage ="Please Select Role")]
             public string[] Roles { get; set; }
         }
 
@@ -77,8 +80,7 @@ namespace BookRentApplication.Areas.Identity.Pages.Account
                 var roleVm = new ApplicationRoleRegisterViewModel
                 {
                     Name = role.Name,
-                    IsSelected = false, // Since this is for a user that does not yet exist, this would initially be deselected.
-                                        // IsDisabled = role.Name == "Admin" && !User.IsInRole("Admin")
+                    IsSelected = false, 
                 };
                 rList.Add(roleVm);
             };
