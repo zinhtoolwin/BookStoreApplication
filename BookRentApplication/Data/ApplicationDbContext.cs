@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using BookRentApplication.Models;
+
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,18 +11,24 @@ namespace BookRentApplication.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+       
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            
+           
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Admin", NormalizedName = "Admin" });
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "User", NormalizedName = "User" });
            
             modelBuilder.Entity<Book>()
              .HasOne<Author>(s => s.Author)
              .WithMany(g => g.Books)
              .HasForeignKey(s => s.AuthorId);
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Author> Authors { get; set; }

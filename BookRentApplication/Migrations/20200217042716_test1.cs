@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace BookRentApplication.Migrations
+namespace BookStoreApplication.Migrations
 {
     public partial class test1 : Migration
     {
@@ -203,6 +203,16 @@ namespace BookRentApplication.Migrations
                         principalColumn: "Author_Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "e355b11d-6f41-4951-a890-16dc36088b87", "d1a69e11-d634-4f1f-8914-6811c82b3cf5", "Admin", "Admin" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "c4b2a24d-5c81-4930-9736-f9e86f113616", "7b25228c-606a-4012-a873-9a24f1a4b706", "User", "User" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

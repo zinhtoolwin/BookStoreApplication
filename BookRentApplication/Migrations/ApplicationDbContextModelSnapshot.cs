@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace BookRentApplication.Migrations
+namespace BookStoreApplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -106,6 +106,22 @@ namespace BookRentApplication.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "e355b11d-6f41-4951-a890-16dc36088b87",
+                            ConcurrencyStamp = "d1a69e11-d634-4f1f-8914-6811c82b3cf5",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "c4b2a24d-5c81-4930-9736-f9e86f113616",
+                            ConcurrencyStamp = "7b25228c-606a-4012-a873-9a24f1a4b706",
+                            Name = "User",
+                            NormalizedName = "User"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
