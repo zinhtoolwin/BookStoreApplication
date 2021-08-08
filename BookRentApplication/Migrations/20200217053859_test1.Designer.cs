@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStoreApplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200217042716_test1")]
+    [Migration("20200217053859_test1")]
     partial class test1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -112,15 +112,15 @@ namespace BookStoreApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e355b11d-6f41-4951-a890-16dc36088b87",
-                            ConcurrencyStamp = "d1a69e11-d634-4f1f-8914-6811c82b3cf5",
+                            Id = "e67d79e2-52f7-48c3-b1d1-df8857434bff",
+                            ConcurrencyStamp = "8fe9af85-48c8-497d-a89d-b0cb498c5ac1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "c4b2a24d-5c81-4930-9736-f9e86f113616",
-                            ConcurrencyStamp = "7b25228c-606a-4012-a873-9a24f1a4b706",
+                            Id = "90e6d49e-fc3b-4c03-b5ca-0be15c00393f",
+                            ConcurrencyStamp = "21ab5622-4cb0-48e4-9837-1cec8a7c7986",
                             Name = "User",
                             NormalizedName = "User"
                         });

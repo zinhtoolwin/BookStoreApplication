@@ -14,6 +14,7 @@ namespace BookRentApplication.Models
         [Key]
         
         public int Book_Id { get; set; }
+        [Display(Name = "Book")]
         public string Book_Name { get; set; }
        
         [ForeignKey("AuthorId")]

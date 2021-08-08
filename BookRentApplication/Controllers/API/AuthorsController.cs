@@ -40,6 +40,7 @@ namespace BookRentApplication.Controllers.API
                                       select new { b.Book_Id, b.Book_Name}).ToList()
                          };
             return new JsonResult(author);
+        
         }
         
         // GET: api/Authors/5
@@ -77,11 +78,13 @@ namespace BookRentApplication.Controllers.API
             {
                 await _context.SaveChangesAsync();
             }
+
             catch (DbUpdateConcurrencyException)
             {
                 if (!AuthorExists(id))
                 {
                     return NotFound();
+
                 }
                 else
                 {

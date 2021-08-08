@@ -44,7 +44,7 @@ namespace BookRentApplication.Areas.Identity.Pages.Account
         [BindProperty]
         public InputModel Input { get; set; }
         [Required(ErrorMessage ="Please Select Role")]
-        public List<ApplicationRoleRegisterViewModel> RolesList { get; private set; }
+        public List<ApplicationRoleRegisterViewModel> RolesList { get;  set; }
         public string ReturnUrl { get; set; }
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
